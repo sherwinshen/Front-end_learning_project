@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Key Detection</title>
+    <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
+</head>
+<body>
+<script>
+    const secretCode = 'www';
+    let pressed = [];
+    window.addEventListener('keyup', e => {
+        pressed.push(e.key);
+        pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length); //截取数组，输入一个字符时，会挤出原有的的字符，保证其最大长度始终为 secretCode 的长度
+        if (pressed.join('').includes(secretCode)) {
+            cornify_add();
+            pressed = [];
+        }
+    });
+
+</script>
+</body>
+</html>

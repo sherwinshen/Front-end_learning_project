@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+            const ul = document.getElementsByClassName('ul')
+            for (let i = 0; i < ul.length; i++) {
+                ul[i].addEventListener('mouseover', function () {
+                    console.log('This is ul mouseover')
+                })
+                ul[i].addEventListener('mouseenter', function () {
+                    console.log('This is ul mouseenter')
+                })
+            }
+            // const li = document.getElementsByClassName('li')
+            // for (let i = 0; i < li.length; i++) {
+            //     li[i].addEventListener('mouseover', function () {
+            //         console.log('This is li mouseover')
+            //     })
+            //     li[i].addEventListener('mouseover', function () {
+            //         console.log('This is li mouseenter')
+            //     })
+            // }
+
+        }
+    </script>
+</head>
+<body>
+
+<ul class="ul" style="height: 300px;">
+    <li class="li">This is li 1</li>
+    <li class="li">This is li 2</li>
+</ul>
+
+</body>
+</html>

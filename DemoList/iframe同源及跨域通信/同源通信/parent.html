@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>This is parent.</title>
+</head>
+<body>
+<div id="parentDiv">This is parent.</div>
+<iframe src="child.html" name="child" id="childPage"></iframe>
+<button onclick="toChild1()">changeChild1</button>
+<button onclick="toChild2()">changeChild2</button>
+<button onclick="toChild3()">changeChild3</button>
+<script>
+    window.onload = function () {
+        document.cookie = "parentMessage=hello child";
+    }
+
+    function toChild1() {
+        // 父页面修改iframe
+        const child = document.getElementById('childPage');
+        child.contentWindow.document.getElementById('childDiv').innerHTML = 'This  message is from parent.'
+    }
+
+    function toChild2() {
+        // 根据name调用
+        child.window.document.getElementById('childDiv').innerHTML = 'This  message is from parent.'
+    }
+
+    function toChild3() {
+        // 调用iframe中的方法，如下child函数定义在child.html中
+        const child = document.getElementById('childPage');
+        child.contentWindow.child('This  message is from parent.');
+    }
+
+    function parent(message) {
+        const div = document.getElementById('parentDiv');
+        div.innerText = message;
+    }
+
+</script>
+</body>
+</html>

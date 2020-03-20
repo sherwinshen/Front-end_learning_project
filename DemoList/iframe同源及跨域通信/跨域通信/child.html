@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>This is parent.</title>
+</head>
+<body>
+<div id="childDiv">This is child.</div>
+<button onclick="toParent()">toParent</button>
+
+<script>
+
+    const url = 'http://localhost:63342/DemoList/iframe同源及跨域通信/跨域通信/parent.html'
+
+    // 通过hash值向子页面传递值
+    function toParent() {
+        window.parent.location.href = this.url + '#name_star'
+    }
+
+    // 监听hash变化接受自页面传值
+    window.addEventListener('hashchange', function () {
+        document.getElementById('childDiv').innerText = location.hash;
+    })
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>This is parent.</title>
+</head>
+<body>
+<div id="parentDiv">This is parent.</div>
+<iframe src="http://localhost:8080/#/" name="child" id="childPage"></iframe>
+<button onclick="toChild()">toChild</button>
+
+<script>
+    const url = 'http://localhost:8080/#/'
+
+    // 通过hash值向子页面传递值
+    function toChild() {
+        const iframe1 = document.getElementById('childPage');
+        iframe1.contentWindow.location.href = url + '#name_WeiShen';
+    }
+
+    // 监听hash变化接受自页面传值
+    window.addEventListener('hashchange', function () {
+        document.getElementById('parentDiv').innerText = location.hash ;
+    })
+
+
+</script>
+</body>
+</html>

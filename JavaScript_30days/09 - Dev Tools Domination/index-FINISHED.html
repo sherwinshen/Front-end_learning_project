@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Console Tricks!</title>
+</head>
+<body>
+
+<p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+<script>
+    const dogs = [{name: 'Snickers', age: 2}, {name: 'hugo', age: 8}];
+    const p = document.querySelector('p');
+
+    function makeGreen() {
+        const p = document.querySelector('p');
+        p.style.color = '#BADA55';
+        p.style.fontSize = '50px';
+    }
+
+    // Regular
+    console.log('hello');
+
+    // Interpolated
+    console.log("输出一个字符串 %s ", "log");
+    console.log("输出一个整数是 %d ", 1.23); //1
+    console.log("输出一个小数是 %f ", 1.23); //1.23
+
+    // Styled
+    console.log("%c不同样式的输出效果", "color: red; font-size: 2em;");
+
+    // warning!
+    console.warn("三角感叹号图标，淡黄色背景")
+
+    // Error :|
+    console.error("红叉图标，红字红色背景");
+
+    // Info
+    console.info("蓝色圆形感叹号图标");
+
+    // Testing - 接受一个表达式作为参数，如果参数返回值是 false，则会输出第二个参数中的内容。
+    console.assert(1 === 1, "（这句发布时删除）");
+    console.assert(1 === 0, "看看看，失策了吧");
+    console.assert(p.classList.contains('ouch'), 'That is wrong!');
+
+    // clearing
+    // console.clear();
+
+    // Viewing DOM Elements
+    console.log(p);
+    console.dir(p);
+
+    // Grouping together
+    // 表格形式
+    console.table(dogs);
+    console.table(dogs, ["age", "name"]);
+    // 数据分组展示
+    dogs.forEach(dog => {
+        console.group(`${dog.name}`);
+        console.log(`This is ${dog.name}`);
+        console.log(`${dog.name} is ${dog.age} years old`);
+        console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+        console.groupEnd(`${dog.name}`);
+    });
+
+    // counting - 仅限于由 count() 输出的内容
+    console.count('Wes');
+    console.count('Wes');
+    console.count('Steve');
+    console.count('Steve');
+    console.count('Wes');
+    console.count('Steve');
+    console.count('Wes');
+    console.count('Steve');
+    console.count('Steve');
+    console.count('Steve');
+    console.count('Steve');
+    console.count('Steve');
+
+    // timing - 用 time("name") 和 timeEnd("name") 分别控制开始点和结束点，参数需相同
+    console.time('fetch my data');
+    fetch("../")
+        .then(data => data.json())
+        .then(data => {
+            console.timeEnd('fetch my data');
+            console.log(data);
+        });
+
+
+</script>
+</body>
+</html>

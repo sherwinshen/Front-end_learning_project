@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .lazy {
+            height: 500px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            // 获取图片列表，即img标签列表
+            const imgs = document.querySelectorAll('img');
+
+            // 获取到浏览器顶部的距离，用于判断当前位置
+            function getTop(e) {
+                return e.offsetTop;
+            }
+
+            // 懒加载实现
+            function lazyload(imgs) {
+                // 可视区域高度
+                const h = window.innerHeight;
+                //滚动区域高度
+                const s = document.documentElement.scrollTop || document.body.scrollTop;
+                console.log('h+s', h + s)
+                // 判断是否需要加载
+                for (let i = 0; i < imgs.length; i++) {
+                    //图片距离顶部的距离大于可视区域和滚动区域之和时懒加载
+                    console.log(i, getTop(imgs[i]))
+                    if ((h + s) > getTop(imgs[i])) {
+                        // 真实情况是页面开始有2秒空白，所以使用setTimeout定时2s
+                        (function (i) {
+                            setTimeout(function () {
+                                // 隐形加载图片或其他资源，创建一个临时图片，这个图片在内存中不会到页面上去。实现隐形加载
+                                const temp = new Image();
+                                temp.src = imgs[i].getAttribute('data-src'); //只会请求一次
+                                // onload 判断图片加载完毕，再赋值给dom节点
+                                temp.onload = function () {
+                                    // 获取自定义属性data-src，用真图片替换假图片
+                                    imgs[i].src = imgs[i].getAttribute('data-src')
+                                }
+                            }, 2000)
+                        })(i) // 不加立即执行函数i会等于img.length+1
+                    }
+                }
+            }
+
+            lazyload(imgs);
+
+            // 滚屏函数
+            window.onscroll = function () {
+                lazyload(imgs);
+            }
+        }
+    </script>
+</head>
+<body>
+<div>
+    <p>
+        <img class="lazy" src='' alt="" data-src="https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2589466796.jpg">
+    </p>
+    <p>
+        <img class="lazy" src='' alt="" data-src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2585215551.jpg">
+    </p>
+    <p>
+        <img class="lazy" src='' alt="" data-src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2555212000.jpg">
+    </p>
+</div>
+
+</body>
+</html>
