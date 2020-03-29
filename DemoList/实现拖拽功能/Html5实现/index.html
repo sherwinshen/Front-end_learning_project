@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container ul {
+            width: 350px;
+            padding: 15px;
+            min-height: 300px;
+            background-color: #FFFFF0;
+            float: left;
+            border-radius: 5px;
+            border: 1px solid #bbb;
+            margin: 20px;
+        }
+
+        .container ul li {
+            display: block;
+            float: left;
+            width: 350px;
+            height: 30px;
+            line-height: 35px;
+            border-radius: 4px;
+            padding: 0;
+            list-style: none;
+            background-color: #EED2EE;
+            margin: 0 0 10px 0px;
+            text-indent: 10px;
+            color: #555;
+        }
+    </style>
+    <script>
+
+        window.onload = function () {
+            const ul_list = document.getElementsByTagName('ul');
+            const li_list = document.getElementsByTagName('li');
+            // drop元素添加监听事件
+            for (let i = 0; i < ul_list.length; i++) {
+                ul_list[i].addEventListener('dragover', function allowDrop(ev) {
+                    ev.preventDefault();
+                })
+
+                ul_list[i].addEventListener('drop', function (ev) {
+                    ev.preventDefault();
+                    let data = ev.dataTransfer.getData("Text");
+                    ev.target.appendChild(document.getElementById(data));
+                })
+            }
+            // drag元素添加监听事件
+            for (let i = 0; i < li_list.length; i++) {
+                li_list[i].addEventListener('dragstart', function (ev) {
+                    ev.dataTransfer.setData("Text", ev.target.id);
+                })
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div class="container">
+    <ul>
+        <li draggable='true' id="li_1">A</li>
+        <li draggable='true' id="li_2">B</li>
+        <li draggable='true' id="li_3">C</li>
+        <li draggable='true' id="li_4">D</li>
+        <li draggable='true' id="li_5">E</li>
+        <li draggable='true' id="li_6">F</li>
+        <li draggable='true' id="li_7">G</li>
+    </ul>
+    <ul></ul>
+</div>
+
+</body>
+</html>

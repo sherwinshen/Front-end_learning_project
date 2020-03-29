@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .drag {
+            width: 200px;
+            height: 200px;
+            background-color: dodgerblue;
+            border: 1px solid;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            const dragObj = document.getElementsByClassName('drag')[0];
+            dragObj.style.left = "0px";
+            dragObj.style.top = "0px";
+            let mouseX, mouseY, objX, objY;
+            let dragFlag = false;
+            dragObj.onmousedown = function (e) {
+                dragFlag = true;
+                dragObj.style.position = "relative";
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                objX = parseInt(dragObj.style.left);
+                objY = parseInt(dragObj.style.top);
+            }
+            document.onmouseover = function (e) {
+                if (dragFlag) {
+                    setTimeout(function () {
+                        dragObj.style.left = parseInt(e.clientX - mouseX + objX) + "px";
+                        dragObj.style.top = parseInt(e.clientY - mouseY + objY) + "px";
+                        console.log('left', dragObj.style.left)
+                        console.log('right', dragObj.style.right)
+                    }, 200)
+                }
+            }
+            document.onmouseup = function () {
+                dragFlag = false;
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="drag"></div>
+</body>
+</html>

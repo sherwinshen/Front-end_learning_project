@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+            // 节流的思路：只会在指定的时间段内执行事件回调
+            // 通俗来讲就是每隔一段时间触发一次回调函数
+
+
+            // 防抖函数 - 时间戳
+            const throttle1 = function (func, delayTime) {
+                let startTime = new Date();
+                return function () {
+                    let context = this, curTime = new Date();
+                    // 判断是否达到触发要求
+                    if (curTime - startTime >= delayTime) {
+                        func.apply(context, arguments);
+                        startTime = curTime;
+                    }
+                }
+            }
+
+            // 防抖函数 - 定时器
+            const throttle2 = function (func, delayTime) {
+                let flag;
+                return function () {
+                    let context = this, args = arguments;
+                    if (!flag) {
+                        flag = setTimeout(function () {
+                            func.apply(context, args);
+                            flag = false;
+                        }, delayTime);
+                    }
+                }
+            }
+
+            window.onscroll = throttle2(function () {
+                // 频繁触发的操作
+                console.log('滚动条位置：', document.documentElement.scrollTop);
+            }, 500)
+
+
+        }
+    </script>
+</head>
+<body style="height: 5000px"></body>
+</html>

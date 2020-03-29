@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+            // 防抖的思路：在第一次触发事件时，不立即执行函数，而是给出一个期限值，因此触发非常频繁的事件合并成一次去执行
+            // 通俗来讲就是频繁触发，在指定时间没有触发则执行回调函数
+
+            // 防抖函数
+            const debounce = function (func, delayTime) {
+                let timeId;
+                return function () {
+                    let context = this, args = arguments;
+                    // 每次触发时先清除定时器
+                    timeId && clearTimeout(timeId);
+                    // 指定 xx ms 后触发真正想进行的操作 handler
+                    timeId = setTimeout(function() {
+                        func.apply(context, args);
+                    }, delayTime)
+                }
+            }
+
+            window.onscroll = debounce(function () {
+                // 频繁触发的操作
+                console.log('滚动条位置：', document.documentElement.scrollTop);
+            }, 500)
+
+        }
+    </script>
+</head>
+<body style="height: 5000px"></body>
+</html>
