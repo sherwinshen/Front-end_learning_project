@@ -11,6 +11,10 @@
 ## 目录：
 
 - 改变this的指向
+- 私有变量
+- 自定义bind函数
+- 数组去重
+- 深度拷贝实现
 - 类的创建与继承
 - 三列布局
 - 实现拖拽功能（JS+H5）
@@ -18,7 +22,9 @@
 - 鼠标事件
 - 图片懒加载/预加载
 - CSS画图
+- sticky粘性布局
 - Flex布局
+- 居中布局
 - iframe同源及跨域访问
 - 节流与防抖
 - 模块化规范CommonJS+ES6 Module
@@ -26,6 +32,11 @@
 - 服务器应用(Nodejs+Mongodb)
 - Nodejs学习
 - 文件上传(Express+multer)
+- 数组常用方法
+- 字符串常用方法
+- 实现sleep效果
+- setTimeout实现setInterval
+- promise实现ajax
 
 
 

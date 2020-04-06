@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>垂直居中</title>
+    <style>
+        .box {
+            height: 100px;
+            width: 100px;
+            border: 1px solid;
+        }
+
+        .bigBox {
+            height: 200px;
+            width: 200px;
+            border: 1px solid red;
+
+        }
+
+        .demo1 {
+            line-height: 100px;
+        }
+
+        .demo2_1 {
+            position: relative;
+        }
+
+        .demo2_2 {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .demo3_1 {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .demo3_2 {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .demo4_1 {
+            display: flex;
+            align-items: center;
+        }
+
+        .demo4_2 {
+            display: flex;
+            align-items: center;
+        }
+
+    </style>
+</head>
+<body>
+<p>文字居中 - line-height=height</p>
+<div class="box demo1">
+    hello world
+</div>
+<p>盒子居中 - 父relative+子absolute/transform</p>
+<div class="bigBox demo2_1">
+    <div class="box demo2_2"></div>
+</div>
+<p>文字/盒子居中 - 父vertical-align/table-cell</p>
+<div class="bigBox demo3_1">
+    <div class="box demo3_2"> hello world</div>
+</div>
+<p>文字/盒子居中 - flex</p>
+<div class="bigBox demo4_1">
+    <div class="box demo4_2"> hello world</div>
+</div>
+
+</body>
+</html>

@@ -12,6 +12,7 @@
 - [MEVN_stack_project](MEVN_stack_project/README.md) - 使用MongoDB、ExpressJS、VueJS和NodeJS构建项目的基础教程。
 - [vuexTutorial](vuexTutorial/README.md) - vuex的基础使用教程，state、getters、mutations、actions等介绍。
 - [vueProjectStructure](vueProjectStructure/README.md) - 常规Vue项目的代码目录结构（含vuex和路由）。
+- [crossDomainSolutions](crossDomainSolutions/README.md) - 前端跨域的常见9种方法总结。
 
 
 
