@@ -6,13 +6,14 @@
 
 
 
-- [DemoList](DemoList/README.md)  - 学习过程中的各种Demo汇总
-- [JavaScript30挑战](JavaScript_30days/README.md) - Build 30 things in 30 days with 30 tutorial No Frameworks × No Compilers × No Libraries × No Boilerplate.
-- [PureJavaScript](PureJavaScript/README.md) - Build A Real-World Application From Scratch. This is a simple issue tracker application.
-- [MEVN_stack_project](MEVN_stack_project/README.md) - 使用MongoDB、ExpressJS、VueJS和NodeJS构建项目的基础教程。
-- [vuexTutorial](vuexTutorial/README.md) - vuex的基础使用教程，state、getters、mutations、actions等介绍。
-- [vueProjectStructure](vueProjectStructure/README.md) - 常规Vue项目的代码目录结构（含vuex和路由）。
-- [crossDomainSolutions](crossDomainSolutions/README.md) - 前端跨域的常见9种方法总结。
+- [DemoList](./DemoList)  - 学习过程中的各种Demo汇总
+- [JavaScript30挑战](./JavaScript_30days) - Build 30 things in 30 days with 30 tutorial No Frameworks × No Compilers × No Libraries × No Boilerplate.
+- [PureJavaScript](./PureJavaScript) - Build A Real-World Application From Scratch. This is a simple issue tracker application.
+- [MEVN_stack_project](./MEVN_stack_project) - 使用MongoDB、ExpressJS、VueJS和NodeJS构建项目的基础教程。
+- [vuexTutorial](./vuexTutorial) - vuex的基础使用教程，state、getters、mutations、actions等介绍。
+- [vueProjectStructure](./vueProjectStructure) - 常规Vue项目的代码目录结构（含vuex和路由）。
+- [crossDomainSolutions](./crossDomainSolutions) - 前端跨域的常见9种方法总结。
+- [sortAlgorithm](./sortAlgorithms_JS) - 排序算法总结（Javascript版本）
 
 
 
