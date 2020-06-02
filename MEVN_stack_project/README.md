@@ -10,13 +10,13 @@
 
 
 
-##  MEVN Stack
+说明：
 
 > The acronym “MEVN” stands for “[MongoDB](http://www.mongodb.org/) + [Express.js](http://expressjs.com/) + [VueJS](https://vuejs.org/) + [Node.js](http://nodejs.org/)”. In this post, I am going to show how to create a basic MEVN (MongoDB/Express/VueJS/Node.js) Stack application.
 
 
 
-### 1、客户端 - VueJS+跨域访问
+## 1、客户端 - VueJS+跨域访问
 
 ```shell
 # 全局安装vue-cli，通过vue-cli来自动化构建初始项目
@@ -118,7 +118,7 @@ export default {
 }
 ```
 
-### 2、服务端 - Node.js+Express.js
+## 2、服务端 - Node.js+Express.js
 
 ```shell
 # 创建项目文件
@@ -171,7 +171,7 @@ app.get('/posts', (req, res) => {
 app.listen(process.env.PORT || 8081) // 监听8081端口
 ```
 
-### 3、数据库 - MongoDB+Mongoose
+## 3、数据库 - MongoDB+Mongoose
 
 > 数据库的相关内容在服务端进行操作，首先需要安装mongodb数据库，并启动数据库。
 
@@ -242,8 +242,6 @@ ExpressJS存在的methods详见[express api](http://www.expressjs.com.cn/4x/api.
 - ......
 
 具体mongoose数据库操作详见[mongoose中文网](http://www.mongoosejs.net)
-
-
 
 
 

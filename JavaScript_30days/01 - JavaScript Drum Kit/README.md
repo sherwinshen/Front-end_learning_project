@@ -17,4 +17,3 @@
 
 1. `transition`让页面元素慢慢从一种状态变成另外一种状态，从而表现出一种过渡的过程。`transitionend` 事件在 CSS 完成过渡后触发。`transitionend` 事件是双向触发的 - 当完成到转换状态的过渡，以及完全恢复到默认或非转换状态时都会触发。
 2.  `document.querySelectorAll()`获得的为类数组对象，`Array.from()`方法就是将一个类数组对象或者可遍历对象转换成一个真正的数组。
-
