@@ -29,7 +29,9 @@
 
 9. [vue_components_communication](./vue_components_communication) - Vue组件通讯的几种方法.
 
-   
+10. [React_init_app](./react_init_app) - React初学项目井字棋
+
+    
 
 ------
 
