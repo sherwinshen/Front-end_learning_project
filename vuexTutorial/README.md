@@ -76,6 +76,17 @@ new Vue({
 ])
 ```
 
+注意命名空间的情况：
+
+```js
+// app为命名空间
+...mapGetters(‘app’, [‘isCollapse’]),  // 命名空间
+...mapGetters([‘isCollapse’]),  // 非命名空间
+...mapGetters(‘app’, {  // 重命名
+  'aaa': 'isCollapse'
+}),
+```
+
 
 
 
