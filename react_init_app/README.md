@@ -6,11 +6,10 @@
 >
 > 创建日期：2020-06-05
 >
-> 参考教程：[React入门教程](https://react.docschina.org/tutorial/tutorial.html)
 
 
 
-**具体内容详见参考教程**
+**具体内容详见参考教程**：[React入门教程](https://react.docschina.org/tutorial/tutorial.html)
 
 
 

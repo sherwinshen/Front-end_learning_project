@@ -10,8 +10,6 @@
 
 
 
-
-
 ## 结构说明
 
 ```
@@ -35,8 +33,6 @@
 │   └── store // 状态管理目录
 │       └── index.js // 引入vuex
 ```
-
-
 
 - main.js - 引入vue-router和vuex
 
@@ -153,8 +149,6 @@ export default {
 ```
 
 <img src='项目结构.png'>
-
-
 
 ------
 

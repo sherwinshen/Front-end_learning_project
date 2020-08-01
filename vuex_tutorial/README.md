@@ -10,7 +10,7 @@
 
 
 
-### Step1
+## Step1
 
 > 创建store文件夹及index.js文件，引入vuex以及创建Vuex.Store实例保存到变量store中，最后使用export default导出store
 
@@ -30,7 +30,7 @@ const store = new Vuex.Store({});
 export default store;
 ```
 
-### Step2
+## Step2
 
 > 在main.js文件中引入store/index.js文件，在文件里面添加 import store from ‘./store’;，再在vue实例全局引入store对象
 
@@ -45,7 +45,7 @@ new Vue({
 })
 ```
 
-### Step3
+## Step3
 
 > 在Vuex.Store实例中编写vuex业务代码 —— 具体参看代码中注释说明
 
@@ -54,7 +54,7 @@ new Vue({
 - mutations - 用户修改store中的值唯一的方法就是提交mutation来修改
 - actions - 对mutations修改值外面套了一层，修改store里面的值，先去提交一个actions，在actions中提交mutation再去修改状态值
 
-### Step4
+## Step4
 
 > 页面文件中使用vuex
 
@@ -87,7 +87,27 @@ new Vue({
 }),
 ```
 
+## 其他
 
+模块化：[Vuex 模块化使用](https://segmentfault.com/a/1190000019924674)
+
+<img src='./vuex_module.jpg'>
+
+```js
+export default new Vuex.Store({
+  modules:{
+    login,
+    info,
+    user
+  }
+})
+
+// 模块化后使用可以添加模块名
+this.$store.state.moduleA.name;
+// getter，mutation，action 他们默认都是注册在全局命名空间的，我们可以模块导出的时候加个 namespaced: true 使其成为带命名空间的模块，然后就可以通过模块名访问了，具体详见参考资料
+this.$store.getters['moduleA/fullName']; 
+this.$store.dispatch('moduleA/ASYNC_SET_NAME', { name: "JJ" }); 
+```
 
 
 
