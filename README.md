@@ -11,7 +11,7 @@
 
 ## 目录
 
-1. [Demo 汇总](./demo_summay)—— 学习过程中的各种小 Demo 汇总 ；
+1. [Demo 汇总](./demo_summary)—— 学习过程中的各种小 Demo 汇总 ；
 2. [JavaScript30天挑战](./javascript_30days) —— Build 30 things with 30 tutorial No Frameworks × No Compilers × No Libraries；
 3. [PureJavaScript](./pure_javascript) —— Build A Real-World Application From Scratch. This is a simple issue tracker application；
 4. [React_init_app](react_init_app) —— React初学项目井字棋；

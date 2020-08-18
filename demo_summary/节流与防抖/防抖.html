@@ -21,11 +21,10 @@
                     }, delayTime)
                 }
             }
-
-            window.onscroll = debounce(function () {
+            window.addEventListener('scroll', debounce(function () {
                 // 频繁触发的操作
                 console.log('滚动条位置：', document.documentElement.scrollTop);
-            }, 500)
+            }, 500))
 
         }
     </script>

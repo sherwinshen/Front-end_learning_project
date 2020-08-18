@@ -211,7 +211,7 @@ function base64(文件流) {
 
 
 
-## 3、对象说明
+## 3. 对象说明
 
 ### 3.1 Blob 对象
 
@@ -290,7 +290,66 @@ function onChange(event) {
 - `FileReader.readAsDataURL()`：返回 Data URL。
 - `FileReader.readAsBinaryString()`：返回原始的二进制字符串。
 
+## 4. 总结
 
+**文件上传**（input 标签通过 document.getElementById('file').files[0] 获取 file 对象）：
+
+- formData上传
+
+```javascript
+const file = document.getElementById('file2').files[0]
+const formData = new FormData()
+formData.append('file', file)
+const data = { file: formData } // 发送 data
+```
+
+- Base64 通过字符串上传
+
+```javascript
+// 文件转 base64 以字符串上传即可 
+const fileReader = new FileReader()
+fileReader.onload = function(event) {
+  const data = { file: event.target.result } // 发送 data
+}
+fileReader.readAsDataURL(file); // 按base64的方式读取，结果是base64，任何文件都可转成base64的形式
+fileReader.readAsArrayBuffer(file); // 以原始二进制方式读取，读取结果可直接转成整数数组
+```
+
+✍️ FileReader 对象用于读取 File 对象或 Blob 对象所包含的文件内容。
+
+大文件上传通过 FileReader 将 file 对象转成二进制数组，再通过 new Blob 生成 blob 对象，blob 对象
+
+**文件下载**
+
+- 调用 window.open(URL)
+- 表单 form.action = URL 调用 submit()
+
+```javascript
+const form = document.createElement('form');
+form.method = 'get';
+form.action = downloadURL;
+document.body.appendChild(form); 
+form.submit();
+document.body.removeChild(form);
+```
+
+- a 标签 href = URL 调用 click()
+
+```javascript
+const a = document.createElement('a');
+a.href = downloadURL;
+a.download = 'fileName.jpg'
+a.click();
+```
+
+✍️ 没有URL则需要创造URL。数据（例如文件流、json等）可以转成 Blob 对象，再通过 URL.createObjectURL(blob) 即可获得 URL。
+
+```javascript
+const blob = new Blob([数据], options: { type: 类型 });
+const url = URL.createObjectURL(blob);
+```
+
+✍️ base64 可以直接当成 URL 来下载。
 
 ------
 

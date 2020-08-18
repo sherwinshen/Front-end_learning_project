@@ -25,6 +25,7 @@ JS学习：
 - [字符串常用方法](./字符串常用方法/index.js)
 - [实现sleep效果](./实现sleep效果/index.js)
 - [JS监听对象属性的改变](./JS监听对象属性的改变)
+- [JS实现sticky布局](./JS实现sticky布局/)
 
 CSS学习：
 
@@ -32,26 +33,24 @@ CSS学习：
 - [CSS画图](./CSS画图)
 - [Flex布局](./Flex布局)
 - [居中布局](./居中布局)
-
 - [Sticky粘性布局](./sticky粘性布局)
 
 HTML学习：
 
 - [实现拖拽功能JS+H5](./实现拖拽功能)
 - [map标签定义图像映射](./map标签定义图像映射/index.html)
-
 - [事件流](./事件流/index.html)
 - [节流与防抖](./节流与防抖)
 - [鼠标事件](./鼠标事件)
 - [图片懒加载/预加载](./图片懒加载与预加载)
 - [iframe同源及跨域通信](./iframe同源及跨域通信)
+- [手写弹出框](./手写弹出框/index.html)
+- [轮播图](轮播图/index.html)
 
 其他学习：
 
 - [Nodejs学习](./Nodejs学习)
-
 - [服务器应用(Nodejs+Mongodb)](./服务器应用_Nodejs_Mongodb)
-
 - [文件上传](./文件上传)
 
   
