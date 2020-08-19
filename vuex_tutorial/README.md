@@ -6,7 +6,6 @@
 >
 > 创建日期：2020-02-25
 >
-> 参考教程：[5分钟带你入门vuex](https://baijiahao.baidu.com/s?id=1618794879569468435&wfr=spider&for=pc)
 
 
 
@@ -109,7 +108,19 @@ this.$store.getters['moduleA/fullName'];
 this.$store.dispatch('moduleA/ASYNC_SET_NAME', { name: "JJ" }); 
 ```
 
+参考教程： 
 
+1、[Vuex 到底是个什么鬼](https://www.jianshu.com/p/120eaf50331c)
+
+2、[Vuex旗下的State和Getter](https://www.jianshu.com/p/946df1834963)
+
+3、[Vuex旗下的Mutation](https://www.jianshu.com/p/64727454f151)
+
+4、[Vuex旗下的Action](https://www.jianshu.com/p/7238d4d42725)
+
+5、[Vuex的小帮手](https://www.jianshu.com/p/c9b8bbaca875)
+
+6、[Vuex的管理员Module](https://www.jianshu.com/p/83d5677b0928)
 
 ------
 

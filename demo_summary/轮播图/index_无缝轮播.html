@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .slide-wrap {
+            width: 100vw;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .slide-content {
+            height: 400px;
+            position: relative;
+            right: 0;
+        }
+
+        .slide-item {
+            height: 400px;
+            width: 100vw;
+            float: left;
+        }
+
+        img {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-wrap">
+    <ul class="slide-content">
+        <li class="slide-item">
+            <img
+                    src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1597855633601&di=689cbf713427600ad9a58d73107dd95a&imgtype=0&src=http%3A%2F%2Fku.90sjimg.com%2Fback_pic%2F03%2F72%2F08%2F1557b88ef37a19b.jpg"
+                    alt=""/>
+        </li>
+        <li class="slide-item">
+            <img
+                    src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1597855666612&di=45c46a0950f192222ac081067b4fbfb0&imgtype=0&src=http%3A%2F%2Fimg4.imgtn.bdimg.com%2Fit%2Fu%3D1419033099%2C1756961391%26fm%3D214%26gp%3D0.jpg"
+                    alt="">
+        </li>
+        <li class="slide-item">
+            <img
+                    src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1597855633600&di=0a41db6a804cb843dd964df1bf8fecd4&imgtype=0&src=http%3A%2F%2Fbpic.588ku.com%2Fback_pic%2F03%2F66%2F35%2F8657b027d63c294.jpg"
+                    alt="">
+        </li>
+        <li class="slide-item">
+            <img
+                    src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1597855633601&di=689cbf713427600ad9a58d73107dd95a&imgtype=0&src=http%3A%2F%2Fku.90sjimg.com%2Fback_pic%2F03%2F72%2F08%2F1557b88ef37a19b.jpg"
+                    alt=""/>
+        </li>
+    </ul>
+</div>
+<script>
+    const content = document.getElementsByClassName('slide-content')[0]
+    const width = document.body.clientWidth
+    content.style.width = `${4 * width}px`
+    let index = 0
+    setInterval(function () {
+        if (index === 2) {
+            setTimeout(function () {
+                index = 0
+                content.style.transitionProperty = 'none' // 此时不执行动画
+                content.style.right = `${index * width}px`
+            }, 1000)
+        }
+        content.style.transition = "right 0.5s ease-in"
+        index = index + 1
+        content.style.right = `${index * width}px`
+    }, 2000)
+</script>
+
+</body>
+</html>
