@@ -108,6 +108,62 @@ this.$store.getters['moduleA/fullName'];
 this.$store.dispatch('moduleA/ASYNC_SET_NAME', { name: "JJ" }); 
 ```
 
+## 总结
+
+```javascript
+// 存储
+const store = new Vuex.store({
+  state: {
+    count: 0
+  },
+  getter: {
+    nowCount(state){
+      return `当前数量${state.count}`
+    }
+  },
+  actions: {
+    increment (context) {
+      context.commit('addCount', 5)
+    }
+  },
+  mutations: {
+    addCount(state, n){
+      state.count += n
+    }
+  }
+})
+
+// 使用 - 单独
+this.$store.state.count
+this.$store.dispach('increment')
+this.$store.commit('addCount', 5)
+this.$store.getters.nowCount
+
+// 使用 - map
+computed: {
+  ...mapState({
+    count: state => state.count // this.count 就是 this.$store.state
+  }),
+  ...mapState([
+    'nowCount'
+  ])
+}
+
+methods: {
+  ...mapActions([
+    'addFun' // 可以将 this.addFun 映射为 this.$store.dispatch('addFun')
+  ]),
+  ...mapMutations([
+    'addFun' // 可以将 this.addFun 映射为this.$store.commit('addFun')
+  ])
+}
+
+// 上述如果需要重命名则不能用数组的形式，用对像即可，举例：
+...mapActions({
+  addOne: 'addFun' // 可以使用 this.addOne() 映射到 this.$store.dispatch('addFun')
+})
+```
+
 参考教程： 
 
 1、[Vuex 到底是个什么鬼](https://www.jianshu.com/p/120eaf50331c)
