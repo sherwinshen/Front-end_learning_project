@@ -43,4 +43,4 @@ JavaScirpt30 是 Wes Bos 推出的一个 30 天挑战。项目免费提供了 30
 
 ------
 
-如果发现本项目有内容上的错误或侵犯相关权益，欢迎提交 issues 进行指正，相关合作请邮件 <a href="mailto:EnvisionShen@gmail.com">EnvisionShen@gmail.com </a>联系。
+项目内容有错误或存在侵权，请提交 issues 进行指正，合作请邮件 <a href="mailto:EnvisionShen@gmail.com">EnvisionShen@gmail.com </a>联系。
