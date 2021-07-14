@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSONP</title>
+</head>
+<body>
+<button onclick="jsonp()">点击JSONP跨域</button>
+<script src=""></script>
+<script>
+
+
+    function jsonp() {
+        // 1、创建script节点
+        const script = document.createElement('script')
+        // 2、设置src以及如果需要返回数据则设置回调函数
+        script.src = 'http://localhost:8080/?callback=displayData&&user=envision';
+        // 3、将回调函数添加至document
+        document.body.append(script);
+    }
+
+    // 4、设置回调函数
+    function displayData(data) {
+        alert(data);
+    }
+
+
+</script>
+</body>
+</html>
