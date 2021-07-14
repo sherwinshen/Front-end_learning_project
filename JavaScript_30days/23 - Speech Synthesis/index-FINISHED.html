@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Speech Synthesis</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="voiceinator">
+
+    <h1>The Voiceinator 5000</h1>
+
+    <select name="voice" id="voices">
+        <option value="">Select A Voice</option>
+    </select>
+
+    <label for="rate">Rate:</label>
+    <input name="rate" type="range" min="0" max="3" value="1" step="0.1">
+
+    <label for="pitch">Pitch:</label>
+    <input name="pitch" type="range" min="0" max="2" step="0.1">
+
+    <textarea name="text">Hello! I love JavaScript 👍</textarea>
+
+    <button id="stop">Stop!</button>
+    <button id="speak">Speak</button>
+
+</div>
+
+<script>
+    const msg = new SpeechSynthesisUtterance();
+    let voices = [];
+    const voicesDropdown = document.querySelector('[name="voice"]');
+    const options = document.querySelectorAll('[type="range"], [name="text"]');
+    const speakButton = document.querySelector('#speak');
+    const stopButton = document.querySelector('#stop');
+    msg.text = document.querySelector('[name="text"]').value;
+
+
+    // 获得浏览器支持的阅读语言并填充至下拉列表
+    function getSupportVoice() {
+        voices = speechSynthesis.getVoices();
+        for (let i = 0; i < voices.length; i++) {
+            let option = document.createElement('option');
+            option.textContent = voices[i].name + ' (' + voices[i].lang + ')';
+            if (voices[i].default) {
+                option.textContent += ' -- DEFAULT';
+            }
+            option.setAttribute('data-lang', voices[i].lang);
+            option.setAttribute('data-name', voices[i].name);
+            voicesDropdown.appendChild(option);
+        }
+    }
+
+    // 速度、音高、文字内容更改
+    function paramChange() {
+        msg[this.name] = this.value;
+    }
+
+    //点击speak按钮时阅读文字
+    function speak() {
+        speechSynthesis.speak(msg);
+    }
+
+    //停止阅读
+    function stopSpeak() {
+        speechSynthesis.cancel();
+    }
+
+    // 事件绑定
+    options.forEach(opt => opt.addEventListener('change', paramChange));
+    speechSynthesis.addEventListener('voiceschanged', getSupportVoice);
+    speakButton.addEventListener('click', speak);
+    stopButton.addEventListener('click', stopSpeak);
+
+</script>
+
+</body>
+</html>

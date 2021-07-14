@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Video Speed Scrubber</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrapper">
+    <video class="flex" width="765" height="430" src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" loop
+           controls></video>
+    <div class="speed">
+        <div class="speed-bar">1×</div>
+    </div>
+</div>
+
+<script>
+    const speed = document.querySelector('.speed');
+    const speedBar = document.querySelector('.speed-bar');
+    const video = document.querySelector(".flex");
+
+    function changeSpeed(e) {
+        const percentage = e.offsetY / speed.offsetHeight;
+        const min = 0.5;
+        const max = 5;
+        // 依据自定义播放速度范围和滑块高度百分比确定播放速率
+        const playbackRate = percentage * (max - min) + min;
+        speedBar.style.height = Math.round(percentage * 100) + '%';
+        speedBar.textContent = playbackRate.toFixed(1) + '×';
+        video.playbackRate = playbackRate.toFixed(1);
+    }
+
+    speed.addEventListener('click', changeSpeed);
+</script>
+</body>
+</html>
