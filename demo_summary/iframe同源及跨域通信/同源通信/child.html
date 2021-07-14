@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>This is child</title>
+</head>
+<body>
+<div id="childDiv">This is child.</div>
+<div id="childDiv2"></div>
+<button onclick="toParent1()">changeParetn1</button>
+<button onclick="toParent2()">changeParetn2</button>
+
+<script>
+    window.onload = function () {
+        const cookie =  decodeURIComponent(document.cookie);
+        const ca = cookie.split(';');
+        document.getElementById('childDiv2').innerText = ca[0];
+    }
+    function toParent1() {
+        parent.document.getElementById('parentDiv').innerText = 'This  message is from child.'
+    }
+
+    function toParent2() {
+        parent.parent('This  message is from child.');
+    }
+
+    function child(message) {
+        const div = document.getElementById('childDiv');
+        div.innerText = message;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .HolyGrail {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    header, footer {
+        flex: 1;
+        background-color: cornflowerblue;
+    }
+
+    .HolyGrail-body {
+        display: flex;
+        flex: 3;
+    }
+
+    .HolyGrail-content {
+        flex: 1;
+        background-color: cadetblue;
+    }
+
+    .HolyGrail-ads, .HolyGrail-nav {
+        flex: 0 0 12em;
+        background-color: bisque;
+    }
+
+    @media (max-width: 768px) {
+
+    }
+</style>
+<body class="HolyGrail">
+<header>Header</header>
+<div class="HolyGrail-body">
+    <nav class="HolyGrail-nav">HolyGrail-nav</nav>
+    <main class="HolyGrail-content">HolyGrail-content</main>
+    <aside class="HolyGrail-ads">HolyGrail-ads</aside>
+</div>
+<footer>Footer</footer>
+
+</body>
+</html>

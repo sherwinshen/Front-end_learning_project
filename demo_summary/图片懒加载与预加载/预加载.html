@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+            // 图片网址
+            const picPath = [
+                'https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2589466796.jpg',
+                'https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2585215551.jpg'
+            ]
+            // 保存加载的图片
+            let images = []
+
+            // 预加载函数
+            function preload() {
+                for (let i = 0; i < picPath.length; i++) {
+                    images[i] = new Image();
+                    images[i].src = picPath[i];
+                }
+            }
+
+            preload();
+
+        }
+    </script>
+</head>
+<body>
+<div>
+    <img src='https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2589466796.jpg' alt="">
+    <img src='https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2585215551.jpg' alt="">
+</div>
+</body>
+</html>

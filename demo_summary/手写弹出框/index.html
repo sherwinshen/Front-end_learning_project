@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #layer {
+            display: none;
+            background: red;
+            opacity: 0.6;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 10;
+        }
+
+        #box {
+            display: none;
+            position: fixed;
+            height: 200px;
+            width: 200px;
+            background: blue;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            z-index: 11;
+        }
+
+    </style>
+</head>
+<body>
+<input type="button" value="点击" onclick="show()">
+<div id="layer"></div>
+<div id="box">这是弹框</div>
+<script>
+    const layer = document.getElementById('layer')
+    const box = document.getElementById('box')
+
+    function show() {
+        layer.style.display = 'block'
+        box.style.display = 'block'
+    }
+
+    layer.addEventListener('click', function () {
+        layer.style.display = 'none'
+        box.style.display = 'none'
+    })
+</script>
+</body>
+</html>

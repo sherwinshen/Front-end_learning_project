@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #div1 {
+        width: 200px;
+        height: 200px;
+        background-color: bisque;
+    }
+</style>
+<body>
+<!--元素可拖拽 - draggable设置为true-->
+<!--ondragstart 属性调用了一个函数，drag(event)，它规定了被拖动的数据-->
+<img id="dragPic" src="pic.gif" draggable="true" ondragstart="drag(event)" alt="">
+<!--拖拽到的位置进行事件监听-->
+<!--ondragover 事件规定在何处放置被拖动的数据; 当放置被拖数据时，会发生 drop 事件-->
+<div id="div1" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+
+<script>
+
+    function drag(ev) {
+        // dataTransfer.setData() 方法设置被拖数据的数据类型和值
+        ev.dataTransfer.setData("Text", ev.target.id);
+    }
+
+    function allowDrop(ev) {
+        ev.preventDefault(); // 阻止对元素的默认处理方式，允许放置其他元素
+    }
+
+    function drop(ev) {
+        ev.preventDefault(); // 避免浏览器对数据的默认处理（drop 事件的默认行为是以链接形式打开）
+        const data = ev.dataTransfer.getData("Text"); // 获得被拖的数据，返回在 setData() 方法中设置为相同类型的任何数据
+        ev.target.appendChild(document.getElementById(data));
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box1 {
+            height: 500px;
+            background-color: blue;
+        }
+
+        .box2 {
+            width: 100vw;
+            height: 200px;
+            background-color: yellow;
+        }
+
+        .box3 {
+            height: 900px;
+            margin-top: 600px;
+            background-color: red;
+        }
+
+        .fixed {
+            position: fixed;
+            top: 100px;
+        }
+    </style>
+</head>
+<body style="height: 3000px">
+<div class="box1"></div>
+<div class="box2"></div>
+<div class="box3"></div>
+<script>
+    const box2 = document.getElementsByClassName('box2')[0]
+    const offsetTop = box2.offsetTop
+    window.addEventListener('scroll', () => {
+        console.log(document.body.scrollTop)
+        if (offsetTop - 100 < document.documentElement.scrollTop) {
+            box2.classList.add('fixed')
+        } else {
+            box2.classList.remove('fixed')
+        }
+    })
+</script>
+</body>
+</html>
